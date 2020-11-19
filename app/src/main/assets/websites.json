@@ -1,0 +1,12 @@
+{
+  "sites": [
+    { "name": "ESPN", "url": "https://www.espnfc.com/", "logo": "espn" },
+    { "name": "Sky Sports", "url": "http://www1.skysports.com/football/", "logo": "sky" },
+    { "name": "Goal", "url": "https://www.goal.com/en", "logo": "goal" },
+    { "name": "BBC", "url": "https://www.bbc.co.uk/sport/football", "logo": "bbc" },
+    { "name": "Guardian", "url": "https://www.theguardian.com/football", "logo": "guardian" },
+    { "name": "Eurosport", "url": "https://uk.eurosport.yahoo.com/football/", "logo": "euro" },
+    { "name": "Mirror", "url": "https://www.mirror.co.uk/sport/football/", "logo": "mirror" },
+    { "name": "Independent", "url": "https://www.independent.co.uk/sport/football/", "logo": "independent" }
+  ]
+}
