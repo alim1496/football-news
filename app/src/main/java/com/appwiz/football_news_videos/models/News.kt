@@ -3,6 +3,18 @@ package com.appwiz.football_news_videos.models
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
+data class NewsSite (
+    @Expose
+    @SerializedName("name")
+    var name:String,
+    @Expose
+    @SerializedName("url")
+    var url:String,
+    @Expose
+    @SerializedName("logo")
+    var logo:String
+)
+
 data class Source (
     @Expose
     @SerializedName("id")

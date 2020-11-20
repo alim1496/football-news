@@ -1,27 +1,28 @@
 package com.appwiz.football_news_videos.fragments
 
+import android.content.Context
+import android.content.Intent
+import android.content.res.AssetManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.appwiz.football_news_videos.R
+import com.appwiz.football_news_videos.activities.NewsActivity
+import com.appwiz.football_news_videos.activities.PlayerActivity
 import com.appwiz.football_news_videos.adapters.NewsAdapter
-import com.appwiz.football_news_videos.adapters.VideoAdapter
-import com.appwiz.football_news_videos.utils.NetworkState
-import com.appwiz.football_news_videos.viewmodels.NewsViewModel
+import com.appwiz.football_news_videos.models.NewsSite
+import org.json.JSONObject
+import java.io.InputStream
+
 
 class NewsFragment: Fragment() {
 
     lateinit var recyclerView: RecyclerView
-    lateinit var viewmodel: NewsViewModel
     lateinit var adapter: NewsAdapter
-    lateinit var swipe: SwipeRefreshLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,30 +31,34 @@ class NewsFragment: Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.layout_news, container, false)
         recyclerView = view.findViewById(R.id.newsRV)
-        swipe = view.findViewById(R.id.swipe)
-        viewmodel = ViewModelProvider(this).get(NewsViewModel::class.java)
-        viewmodel.loadData(1)
-        adapter = NewsAdapter()
+
+        val listString = context?.let { getJsonFile("websites.json", it) }
+        val siteObj = JSONObject(listString!!)
+        val sites = siteObj.getJSONArray("sites")
+        val websites:MutableList<NewsSite> = ArrayList()
+        for (i in 0 until sites.length()) {
+            val site = sites.getJSONObject(i)
+            val news = NewsSite(site.getString("name"),
+                site.getString("url"), site.getString("logo"))
+            websites.add(news)
+        }
+        adapter = NewsAdapter(websites) { url:String ->
+            val intent = Intent(context, NewsActivity::class.java)
+            intent.putExtra("site_url", url)
+            startActivity(intent)
+        }
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        viewmodel.newslist.observe(viewLifecycleOwner, Observer { adapter.reload(it) })
-        viewmodel.state.observe(viewLifecycleOwner, Observer {
-            when (it) {
-                NetworkState.LOADING -> {
-                    swipe.isRefreshing = true
-                    // error.visibility = View.GONE
-                }
-                NetworkState.LOADED -> {
-                    swipe.isRefreshing = false
-                }
-                else -> {
-                    swipe.isRefreshing = false
-                    recyclerView.visibility = View.GONE
-                    // error.visibility = View.VISIBLE
-                }
-            }
-        })
-        swipe.setOnRefreshListener { viewmodel.loadData(1) }
+        recyclerView.layoutManager = GridLayoutManager(context, 2)
+
         return view
+    }
+
+    fun getJsonFile(filename: String?, context: Context): String? {
+        val manager: AssetManager = context.assets
+        val file: InputStream = manager.open(filename!!)
+        val formArray = ByteArray(file.available())
+        file.read(formArray)
+        file.close()
+        return String(formArray)
     }
 }

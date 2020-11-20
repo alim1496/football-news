@@ -15,7 +15,7 @@ data class Competition (
     var url:String
 )
 
-data class Match (
+public data class Match (
     @Expose
     @SerializedName("title")
     var title:String,

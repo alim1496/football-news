@@ -3,22 +3,13 @@ package com.appwiz.football_news_videos.viewmodels
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.appwiz.football_news_videos.connection.APIServices
-import com.appwiz.football_news_videos.connection.RetrofitClient
-import com.appwiz.football_news_videos.database.EntityMatch
-import com.appwiz.football_news_videos.database.RoomDB
 import com.appwiz.football_news_videos.models.News
-import com.appwiz.football_news_videos.repository.MatchRepo
 import com.appwiz.football_news_videos.utils.NetworkState
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.net.HttpURLConnection
 import java.net.URL
 

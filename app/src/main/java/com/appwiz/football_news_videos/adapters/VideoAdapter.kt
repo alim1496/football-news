@@ -14,22 +14,26 @@ import com.appwiz.football_news_videos.database.EntityMatch
 import com.appwiz.football_news_videos.models.Match
 import com.appwiz.football_news_videos.utils.UtilMethods
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
+import java.util.*
 
-class VideoAdapter(private var videos:List<EntityMatch>, private val click: (String) -> Unit)
+class VideoAdapter(private var videos:List<Match>, private val click: (String) -> Unit)
     : RecyclerView.Adapter<VideoAdapter.VideoViewHolder>() {
 
     class VideoViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
         val play:ImageView = itemView.findViewById(R.id.play)
-        fun bindView(match:EntityMatch) {
+        fun bindView(match:Match) {
             val title:TextView = itemView.findViewById(R.id.title)
             val comp:TextView = itemView.findViewById(R.id.competition)
             val ago:TextView = itemView.findViewById(R.id.time_ago)
             val thumb:ImageView = itemView.findViewById(R.id.thumbnail)
 
             title.text = match.title
-            comp.text = match.competition
+            comp.text = match.competition.name
             Picasso.get().load(match.thumbnail).placeholder(R.drawable.video_ph).into(thumb)
-            ago.text = UtilMethods().findTimeAgo( match.time)
+            val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.US)
+            val time = sdf.parse(match.date)!!
+            ago.text = UtilMethods().findTimeAgo(time.time)
         }
     }
 
@@ -46,7 +50,7 @@ class VideoAdapter(private var videos:List<EntityMatch>, private val click: (Str
         holder.bindView(video)
     }
 
-    fun setData(newData:List<EntityMatch>) {
+    fun setData(newData:List<Match>) {
         videos = newData
         notifyDataSetChanged()
     }

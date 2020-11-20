@@ -8,24 +8,31 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.appwiz.football_news_videos.R
 import com.appwiz.football_news_videos.models.News
+import com.appwiz.football_news_videos.models.NewsSite
 import com.squareup.picasso.Picasso
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
-
-    private var newslist:MutableList<News> = ArrayList()
+class NewsAdapter(private var newslist: List<NewsSite>, private val click: (String) -> Unit) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindview(news:News) {
+        val view:View = itemView.findViewById(R.id.name_holder)
+
+        fun bindview(news:NewsSite) {
             val title:TextView = itemView.findViewById(R.id.title)
-            val source:TextView = itemView.findViewById(R.id.source)
-            val time:TextView = itemView.findViewById(R.id.time)
-            val desc:TextView = itemView.findViewById(R.id.desc)
-            val cover:ImageView = itemView.findViewById(R.id.cover)
-            title.text = news.title
-            source.text = news.source.name
-            time.text = news.time
-            desc.text = news.description
-            Picasso.get().load(news.image).placeholder(R.drawable.ic_image_ph).into(cover)
+            val logo:ImageView = itemView.findViewById(R.id.logo)
+            title.text = news.name
+            when (news.logo) {
+                "bbc" -> Picasso.get().load(R.drawable.ic_bbc).into(logo)
+                "goal" -> Picasso.get().load(R.drawable.ic_goal).into(logo)
+                "sky" -> Picasso.get().load(R.drawable.ic_sky).into(logo)
+                "espn" -> Picasso.get().load(R.drawable.ic_espn).into(logo)
+                "guardian" -> Picasso.get().load(R.drawable.ic_guardian).into(logo)
+                "euro" -> Picasso.get().load(R.drawable.ic_euro).into(logo)
+                "mirror" -> Picasso.get().load(R.drawable.ic_mirror).into(logo)
+                "independent" -> Picasso.get().load(R.drawable.ic_independent).into(logo)
+                "marca" -> Picasso.get().load(R.drawable.ic_marca).into(logo)
+                "uefa" -> Picasso.get().load(R.drawable.ic_uefa).into(logo)
+            }
+
         }
     }
 
@@ -39,17 +46,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val news = newslist.get(position)
+        holder.view.setOnClickListener { click(news.url) }
         holder.bindview(news)
-    }
-
-    fun reload(newslist:List<News>) {
-        this.newslist.clear()
-        this.newslist.addAll(newslist)
-        notifyDataSetChanged()
-    }
-
-    fun append(newslist:List<News>) {
-        this.newslist.addAll(newslist)
-        notifyItemRangeInserted(this.newslist.size - newslist.size, newslist.size)
     }
 }
