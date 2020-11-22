@@ -3,6 +3,7 @@ package com.appwiz.football_news_videos
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.appwiz.football_news_videos.fragments.ArchiveFragment
 import com.appwiz.football_news_videos.fragments.NewsFragment
 import com.appwiz.football_news_videos.fragments.VideoFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -29,6 +30,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_epi -> {
                 replaceFragment(NewsFragment())
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_archive -> {
+                replaceFragment(ArchiveFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }

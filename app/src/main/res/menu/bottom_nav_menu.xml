@@ -11,4 +11,9 @@
         android:icon="@drawable/ic_newspaper"
         android:title="@string/menu_news"/>
 
+    <item
+        android:id="@+id/navigation_archive"
+        android:icon="@drawable/ic_archive"
+        android:title="@string/menu_arch"/>
+
 </menu>
