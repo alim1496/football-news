@@ -12,8 +12,8 @@
         android:title="@string/menu_news"/>
 
     <item
-        android:id="@+id/navigation_arch"
+        android:id="@+id/navigation_archive"
         android:icon="@drawable/ic_archive"
-        android:title="@string/menu_archive"/>
+        android:title="@string/menu_arch"/>
 
 </menu>

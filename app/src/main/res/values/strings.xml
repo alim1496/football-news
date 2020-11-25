@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Football Highlights</string>
-
     <string name="menu_video">Videos</string>
     <string name="menu_news">News</string>
     <string name="menu_archive">Archive</string>
