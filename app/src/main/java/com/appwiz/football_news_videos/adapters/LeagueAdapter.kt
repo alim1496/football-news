@@ -10,7 +10,7 @@ import com.appwiz.football_news_videos.R
 import com.appwiz.football_news_videos.models.League
 import com.squareup.picasso.Picasso
 
-class LeagueAdapter(private var leagues:List<League>) : RecyclerView.Adapter<LeagueAdapter.LeagueViewHolder>() {
+class LeagueAdapter(private var leagues:List<League>, private val click: (String) -> Unit) : RecyclerView.Adapter<LeagueAdapter.LeagueViewHolder>() {
 
     class LeagueViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val view:View = itemView.findViewById(R.id.name_holder)
@@ -40,6 +40,7 @@ class LeagueAdapter(private var leagues:List<League>) : RecyclerView.Adapter<Lea
 
     override fun onBindViewHolder(holder: LeagueViewHolder, position: Int) {
         val news = leagues.get(position)
+        holder.view.setOnClickListener{ click(news.name) }
         holder.bindview(news)
     }
 }

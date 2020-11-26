@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".activities.PlayerActivity" />
         <activity android:name=".activities.NewsActivity" />
+        <activity android:name=".activities.YearsActivity" />
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.appwiz.football_news_videos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.appwiz.football_news_videos.fragments.ArchiveFragment
 import com.appwiz.football_news_videos.fragments.NewsFragment

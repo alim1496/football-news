@@ -1,6 +1,7 @@
 package com.appwiz.football_news_videos.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.AssetManager
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.appwiz.football_news_videos.R
+import com.appwiz.football_news_videos.activities.YearsActivity
 import com.appwiz.football_news_videos.adapters.LeagueAdapter
 import com.appwiz.football_news_videos.models.League
 import org.json.JSONObject
@@ -39,7 +41,11 @@ class ArchiveFragment : Fragment() {
             websites.add(news)
         }
 
-        adapter = LeagueAdapter(websites)
+        adapter = LeagueAdapter(websites) {name:String ->
+            val intent = Intent(context, YearsActivity::class.java)
+            intent.putExtra("league_name", name)
+            startActivity(intent)
+        }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(context, 2)
 
