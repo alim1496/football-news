@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/rank"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        tools:text="1"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_toEndOf="@id/rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Liverpool FC"
+        android:textColor="@color/colorAccent"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:maxWidth="200dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        />
+
+    <TextView
+        android:id="@+id/matches"
+        android:gravity="center"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        tools:text="38"
+        android:textColor="@color/colorAccent"
+        android:layout_toStartOf="@id/win"
+        android:layout_alignBottom="@id/win"
+        />
+
+    <TextView
+        android:id="@+id/win"
+        android:gravity="center"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        tools:text="32"
+        android:textColor="@color/colorAccent"
+        android:layout_toStartOf="@id/draw"
+        android:layout_alignBottom="@id/draw"
+        />
+
+    <TextView
+        android:id="@+id/draw"
+        android:gravity="center"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        tools:text="3"
+        android:textColor="@color/colorAccent"
+        android:layout_toStartOf="@id/loss"
+        android:layout_alignBottom="@id/loss"
+        />
+
+    <TextView
+        android:id="@+id/loss"
+        android:gravity="center"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        tools:text="3"
+        android:textColor="@color/colorAccent"
+        android:layout_toStartOf="@id/diff"
+        android:layout_alignBottom="@id/diff"
+        />
+
+    <TextView
+        android:id="@+id/diff"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        tools:text="+32"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:layout_toStartOf="@id/points"
+        android:layout_alignBottom="@id/points"
+        />
+
+    <TextView
+        android:id="@+id/points"
+        android:gravity="center"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        tools:text="99"
+        android:textColor="@color/colorAccent"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        />
+
+</RelativeLayout>

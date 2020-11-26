@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
@@ -17,6 +18,8 @@ class YearsActivity : AppCompatActivity() {
 
     private lateinit var viewpager: ViewPager2
     private lateinit var tabs: TabLayout
+    private lateinit var title:TextView
+    private lateinit var season:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +27,15 @@ class YearsActivity : AppCompatActivity() {
 
         viewpager = findViewById(R.id.view_pager)
         tabs = findViewById(R.id.tabs)
-        viewpager.adapter = ResultAdapter(this)
+        title = findViewById(R.id.league_name)
+        season = findViewById(R.id.season)
+
         val name = intent.getStringExtra("league_name")
+        title.text = name
+        season.text = "2019-2020"
+
+        viewpager.adapter = ResultAdapter(this, name!!)
+
         TabLayoutMediator(tabs, viewpager) { tab, position->
             when (position) {
                 0 -> tab.text = "Results"

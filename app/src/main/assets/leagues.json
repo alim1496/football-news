@@ -3,7 +3,7 @@
     {"name": "Premier League", "logo": "epl", "season": "2019-20,2018-19"},
     {"name": "La Liga", "logo": "laliga", "season": "2019-20,2018-19"},
     {"name": "Serie A", "logo": "seriea", "season": "2019-20,2018-19"},
-    {"name": "Bundesliga", "logo": "bliga", "season": "2019-20,2018-19"},
-    {"name": "Ligue 1", "logo": "lone", "season": "2019-20,2018-19"}
+    {"name": "Bundesliga", "logo": "bundesliga", "season": "2019-20,2018-19"},
+    {"name": "Ligue 1", "logo": "ligue1", "season": "2019-20,2018-19"}
   ]
 }

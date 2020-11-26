@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.appwiz.football_news_videos.fragments.ResultFragment
 
-class ResultAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) {
+class ResultAdapter(fragment: FragmentActivity, private val name: String) : FragmentStateAdapter(fragment) {
 
     override fun getItemCount() : Int = 4
 
@@ -15,6 +15,7 @@ class ResultAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment)
         val fragment = ResultFragment()
         fragment.arguments = Bundle().apply {
             putInt("result_type", position)
+            putString("name_league", name)
         }
         return fragment
     }

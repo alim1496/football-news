@@ -23,8 +23,8 @@ class LeagueAdapter(private var leagues:List<League>, private val click: (String
                 "epl" -> Picasso.get().load(R.drawable.ic_epl).into(logo)
                 "laliga" -> Picasso.get().load(R.drawable.ic_laliga).into(logo)
                 "seriea" -> Picasso.get().load(R.drawable.ic_siriea).into(logo)
-                "bliga" -> Picasso.get().load(R.drawable.ic_bliga).into(logo)
-                "lone" -> Picasso.get().load(R.drawable.ic_lone).into(logo)
+                "bundesliga" -> Picasso.get().load(R.drawable.ic_bliga).into(logo)
+                "ligue1" -> Picasso.get().load(R.drawable.ic_lone).into(logo)
             }
 
         }
@@ -40,7 +40,7 @@ class LeagueAdapter(private var leagues:List<League>, private val click: (String
 
     override fun onBindViewHolder(holder: LeagueViewHolder, position: Int) {
         val news = leagues.get(position)
-        holder.view.setOnClickListener{ click(news.name) }
+        holder.view.setOnClickListener{ click(news.logo) }
         holder.bindview(news)
     }
 }
