@@ -9,7 +9,7 @@ import com.appwiz.football_news_videos.models.Standing
 
 class StandingAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var resultList:List<ResultItem> = emptyList()
+    private var resultList:MutableList<ResultItem> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         when (viewType) {
@@ -31,8 +31,9 @@ class StandingAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         (holder as StandingViewHolder).bindVIew(standing)
     }
 
-    fun appendData(data:List<ResultItem>) {
-        resultList = data
+    fun appendData(data:MutableList<ResultItem>) {
+        resultList.clear()
+        resultList.addAll(data)
         notifyDataSetChanged()
     }
 

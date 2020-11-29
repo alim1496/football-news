@@ -3,6 +3,7 @@ package com.appwiz.football_news_videos.viewmodels
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.appwiz.football_news_videos.models.ResultItem
 import com.appwiz.football_news_videos.models.Standing
 import com.appwiz.football_news_videos.utils.NetworkState
 import kotlinx.coroutines.CoroutineScope
@@ -14,7 +15,7 @@ import java.net.URL
 
 class ResultViewModel(application: Application): AndroidViewModel(application) {
 
-    var standingData: MutableLiveData<List<Standing>> = MutableLiveData()
+    var standingData: MutableLiveData<MutableList<ResultItem>> = MutableLiveData()
     var networkState: MutableLiveData<NetworkState> = MutableLiveData()
 
     fun loadData(league:String) {
@@ -30,7 +31,7 @@ class ResultViewModel(application: Application): AndroidViewModel(application) {
         val data = connection.inputStream.bufferedReader().readText()
         val obj = JSONObject(data)
         val sites = obj.getJSONArray("standing")
-        val standings:MutableList<Standing> = ArrayList()
+        val standings:MutableList<ResultItem> = ArrayList()
 
         for (i in 0 until sites.length()) {
             val site = sites.getJSONObject(i)
