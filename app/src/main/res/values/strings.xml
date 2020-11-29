@@ -3,4 +3,12 @@
     <string name="menu_video">Videos</string>
     <string name="menu_news">News</string>
     <string name="menu_archive">Archive</string>
+
+    <string name="team_title">TEAM</string>
+    <string name="team_played">P</string>
+    <string name="team_win">W</string>
+    <string name="team_draw">D</string>
+    <string name="team_loss">L</string>
+    <string name="team_diff">GD</string>
+    <string name="team_pts">PTS</string>
 </resources>

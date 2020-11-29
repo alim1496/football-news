@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.appwiz.football_news_videos.models.Standing
+import com.appwiz.football_news_videos.utils.NetworkState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,9 +15,11 @@ import java.net.URL
 class ResultViewModel(application: Application): AndroidViewModel(application) {
 
     var standingData: MutableLiveData<List<Standing>> = MutableLiveData()
+    var networkState: MutableLiveData<NetworkState> = MutableLiveData()
 
     fun loadData(league:String) {
         CoroutineScope(Dispatchers.IO).launch {
+            networkState.postValue(NetworkState.LOADING)
             fetchData(league)
         }
     }
@@ -37,6 +40,7 @@ class ResultViewModel(application: Application): AndroidViewModel(application) {
             standings.add(standing)
         }
 
+        networkState.postValue(NetworkState.LOADED)
         standingData.postValue(standings)
 
     }

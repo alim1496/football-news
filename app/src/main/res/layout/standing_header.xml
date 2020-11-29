@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/team_title"
+        android:textColor="@color/colorAccent"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="50dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/matches"
+        android:gravity="center"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:text="@string/team_played"
+        android:textColor="@color/colorAccent"
+        android:layout_toStartOf="@id/win"
+        android:layout_alignBottom="@id/win"
+        android:layout_marginEnd="5dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/win"
+        android:gravity="center"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:text="@string/team_win"
+        android:textColor="@color/colorAccent"
+        android:layout_toStartOf="@id/draw"
+        android:layout_alignBottom="@id/draw"
+        android:layout_marginEnd="5dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/draw"
+        android:gravity="center"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:text="@string/team_draw"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:layout_toStartOf="@id/loss"
+        android:layout_alignBottom="@id/loss"
+        android:layout_marginEnd="5dp"
+        />
+
+    <TextView
+        android:id="@+id/loss"
+        android:gravity="center"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:text="@string/team_loss"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:layout_toStartOf="@id/diff"
+        android:layout_alignBottom="@id/diff"
+        android:layout_marginEnd="5dp"
+        />
+
+    <TextView
+        android:id="@+id/diff"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:text="@string/team_diff"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:layout_toStartOf="@id/points"
+        android:layout_alignBottom="@id/points"
+        android:layout_marginEnd="5dp"
+        />
+
+    <TextView
+        android:id="@+id/points"
+        android:gravity="center"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:text="@string/team_pts"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="5dp"
+        />
+
+</RelativeLayout>
