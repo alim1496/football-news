@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <TextView
+        android:id="@+id/rank"
+        tools:text="1"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:textColor="@color/colorAccent"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_toEndOf="@id/rank"
+        tools:text="Robert Lewandowski"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:paddingEnd="5dp"
+        android:paddingStart="5dp"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:layout_toStartOf="@id/club"
+        android:id="@+id/country"
+        tools:text="South Africa"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:paddingEnd="5dp"
+        android:paddingStart="5dp"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:layout_toStartOf="@id/goals"
+        android:id="@+id/club"
+        tools:text="FC Barcelona"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:paddingEnd="5dp"
+        android:paddingStart="5dp"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/goals"
+        android:layout_alignParentEnd="true"
+        tools:text="55"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:paddingEnd="5dp"
+        android:paddingStart="5dp"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

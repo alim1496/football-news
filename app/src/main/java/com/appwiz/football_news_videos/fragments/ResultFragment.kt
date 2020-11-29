@@ -50,7 +50,10 @@ class ResultFragment : Fragment() {
         val league = arguments!!.getString("name_league")
 
         if (type == 1 && league != null) {
-            viewModel.loadData(league)
+            viewModel.loadData(type, league)
+            standingHeader.visibility = View.VISIBLE
+        } else if (type == 2 && league != null) {
+            viewModel.loadData(type, league)
             standingHeader.visibility = View.VISIBLE
         } else {
             standingHeader.visibility = View.GONE

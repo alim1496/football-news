@@ -39,6 +39,6 @@ class Standing(
     var points: String = _points
 
     override val typeResultItem: Int
-        get() = ResultItem.TYPE_RESULT
+        get() = ResultItem.TYPE_STANDING
 
 }
