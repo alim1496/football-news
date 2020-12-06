@@ -11,4 +11,9 @@
     <string name="team_loss">L</string>
     <string name="team_diff">GD</string>
     <string name="team_pts">PTS</string>
+
+    <string name="scorer_name">PLAYER</string>
+    <string name="scorer_country">COUNTRY</string>
+    <string name="scorer_club">TEAM</string>
+    <string name="scorer_goals">NOS</string>
 </resources>

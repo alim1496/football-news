@@ -1,107 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:background="@color/colorPrimaryDark"
-    android:paddingTop="5dp"
-    android:paddingBottom="5dp">
+    android:stretchColumns="1">
 
-    <TextView
-        android:id="@+id/rank"
-        android:layout_width="20dp"
+    <TableRow
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="1"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        android:textColor="@color/colorAccent"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        />
+        android:background="@color/colorPrimaryDark">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_toEndOf="@id/rank"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        tools:text="Liverpool FC"
-        android:textColor="@color/colorAccent"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:layout_centerVertical="true"
-        />
+        <TextView
+            android:id="@+id/rank"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            tools:text="1"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:layout_marginEnd="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_column="0"
+            />
 
-    <TextView
-        android:id="@+id/matches"
-        android:gravity="center"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        tools:text="38"
-        android:textColor="@color/colorAccent"
-        android:layout_toStartOf="@id/win"
-        android:layout_alignBottom="@id/win"
-        android:layout_marginEnd="5dp"
-        />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            tools:text="Liverpool FC"
+            android:textColor="@color/colorAccent"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:maxLines="1"
+            android:layout_column="1"
+            />
 
-    <TextView
-        android:id="@+id/win"
-        android:gravity="center"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        tools:text="32"
-        android:textColor="@color/colorAccent"
-        android:layout_toStartOf="@id/draw"
-        android:layout_alignBottom="@id/draw"
-        android:layout_marginEnd="5dp"
-        />
+        <TextView
+            android:id="@+id/matches"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            tools:text="38"
+            android:textColor="@color/colorAccent"
+            android:layout_marginEnd="5dp"
+            android:layout_column="2"
+            />
 
-    <TextView
-        android:id="@+id/draw"
-        android:gravity="center"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        tools:text="3"
-        android:textColor="@color/colorAccent"
-        android:layout_toStartOf="@id/loss"
-        android:layout_alignBottom="@id/loss"
-        android:layout_marginEnd="5dp"
-        />
+        <TextView
+            android:id="@+id/win"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            tools:text="32"
+            android:textColor="@color/colorAccent"
+            android:layout_marginEnd="5dp"
+            android:layout_column="3"
+            />
 
-    <TextView
-        android:id="@+id/loss"
-        android:gravity="center"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        tools:text="3"
-        android:textColor="@color/colorAccent"
-        android:layout_toStartOf="@id/diff"
-        android:layout_alignBottom="@id/diff"
-        android:layout_marginEnd="5dp"
-        />
+        <TextView
+            android:id="@+id/draw"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            tools:text="3"
+            android:textColor="@color/colorAccent"
+            android:layout_marginEnd="5dp"
+            android:layout_column="4"
+            />
 
-    <TextView
-        android:id="@+id/diff"
-        android:layout_width="30dp"
-        android:layout_height="wrap_content"
-        tools:text="+32"
-        android:gravity="center"
-        android:textColor="@color/colorAccent"
-        android:layout_toStartOf="@id/points"
-        android:layout_alignBottom="@id/points"
-        android:layout_marginEnd="5dp"
-        />
+        <TextView
+            android:id="@+id/loss"
+            android:gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            tools:text="3"
+            android:textColor="@color/colorAccent"
+            android:layout_marginEnd="5dp"
+            android:layout_column="5"/>
 
-    <TextView
-        android:id="@+id/points"
-        android:gravity="center"
-        android:layout_width="30dp"
-        android:layout_height="wrap_content"
-        tools:text="99"
-        android:textColor="@color/colorAccent"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        />
+        <TextView
+            android:id="@+id/diff"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            tools:text="+32"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:layout_marginEnd="5dp"
+            android:layout_column="6"
+            />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/points"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            tools:text="99"
+            android:textColor="@color/colorAccent"
+            android:layout_marginEnd="5dp"
+            android:layout_column="7"
+            />
+
+    </TableRow>
+
+</TableLayout>

@@ -34,6 +34,7 @@ class ResultFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var viewModel: ResultViewModel
     lateinit var standingHeader: View
+    lateinit var scorerHeader: View
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +46,7 @@ class ResultFragment : Fragment() {
         loader = view.findViewById(R.id.loader)
         recyclerView = view.findViewById(R.id.videoRV)
         standingHeader = view.findViewById(R.id.section_standing)
+        scorerHeader = view.findViewById(R.id.section_scorer)
 
         val type = arguments!!.getInt("result_type")
         val league = arguments!!.getString("name_league")
@@ -52,11 +54,14 @@ class ResultFragment : Fragment() {
         if (type == 1 && league != null) {
             viewModel.loadData(type, league)
             standingHeader.visibility = View.VISIBLE
+            scorerHeader.visibility = View.GONE
         } else if (type == 2 && league != null) {
             viewModel.loadData(type, league)
-            standingHeader.visibility = View.VISIBLE
+            standingHeader.visibility = View.GONE
+            scorerHeader.visibility = View.VISIBLE
         } else {
             standingHeader.visibility = View.GONE
+            scorerHeader.visibility = View.GONE
         }
 
         val adapter = StandingAdapter()

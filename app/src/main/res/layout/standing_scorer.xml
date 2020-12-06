@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:stretchColumns="1"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:stretchColumns="1">
+    android:layout_height="match_parent">
 
     <TableRow
         android:paddingTop="5dp"
@@ -13,50 +12,43 @@
         android:background="@color/colorPrimaryDark">
 
         <TextView
-            android:id="@+id/rank"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            tools:text="1"
-            android:gravity="center"
-            android:textColor="@color/colorAccent"
-            android:layout_column="0"
-            />
-
-        <TextView
             android:id="@+id/name"
-            tools:text="Robert Lewandowski"
+            android:text="@string/scorer_name"
             android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:textColor="@color/colorAccent"
             android:layout_column="1"
-            android:gravity="start"/>
+            android:gravity="center"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/country"
-            tools:text="South Africa"
+            android:text="@string/scorer_country"
             android:layout_width="0dp"
             android:layout_weight="3"
             android:layout_column="2"
             android:textColor="@color/colorAccent"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/club"
-            tools:text="FC Barcelona"
+            android:text="@string/scorer_club"
             android:layout_width="0dp"
             android:layout_weight="3"
             android:layout_column="3"
             android:textColor="@color/colorAccent"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/goals"
-            tools:text="55"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:text="@string/scorer_goals"
+            android:layout_width="wrap_content"
             android:layout_column="4"
             android:textColor="@color/colorAccent"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textStyle="bold"/>
 
     </TableRow>
 

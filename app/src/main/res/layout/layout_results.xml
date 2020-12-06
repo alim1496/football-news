@@ -12,8 +12,13 @@
 
         <include
             android:id="@+id/section_standing"
-            android:visibility="visible"
+            android:visibility="gone"
             layout="@layout/standing_header" />
+
+        <include
+            android:id="@+id/section_scorer"
+            android:visibility="gone"
+            layout="@layout/standing_scorer" />
 
         <View
             android:layout_width="match_parent"
